@@ -32,13 +32,13 @@ Quack! creates a low-commitment coordination layer for what's happening around c
 
 ## Vision
 
-*Think bigger than the semester MVP.*
+
 
 **Make spontaneous campus life visible.** Quack! aims to become the ambient social layer for campus: a simple way for students to see what's happening nearby, create low-commitment meetups, and turn shared time and place into real-world connection — discovering nearby activity, creating events in seconds, joining spontaneously, building campus connections, and eventually understanding activity patterns.
 
 ## Semester Scope (MVP)
 
-*Prove the core loop end to end: **Post → Discover → Join → Repeat.***
+ ***Post → Discover → Join → Repeat.***
 
 A registered student can place an event pin on a campus map, add a date, time, location, and short description, and make the event public or accessible only through a link. Other students can discover nearby events, view details and attendance, and join or leave. Hosts can edit or cancel their events and review basic view/participation counts.
 
