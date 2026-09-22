@@ -11,7 +11,7 @@ jobs:
     name: Add to Quack! project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@v1
+      - uses: actions/add-to-project@v2
         with:
           # User-owned project: https://github.com/users/<username>/projects/<number>
           # Org-owned project:  https://github.com/orgs/<org>/projects/<number>
