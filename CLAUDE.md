@@ -16,7 +16,8 @@ Prerequisites: JDK 21, Node, Docker. Nothing else installed globally; the API bu
 through the committed wrapper.
  
 - Run API locally:
-- Run client (development build):
+- Run client: `cd client && npm install && npm start`, then scan the QR code with Expo
+  Go. The development build that the Mapbox native module needs arrives with #19.
 - Test:
 - Lint:
 - Deploy: merging to `main` deploys the API via GitHub Actions. Never deploy by hand.
@@ -205,9 +206,12 @@ Use these exact terms in code, UI copy, and commit messages:
   approving review.
 ## Do not guess on these
  
+Decided: Android is the platform we build, test, and demo on this semester. An iOS profile
+can be added later; iOS would need an Apple Developer membership and a physical device,
+since nobody on the team has a Mac.
+ 
 Still open. Ask the team rather than picking an answer:
  
-- Which client platform ships: iOS, Android, or both
 - How the session is held on the device, given the design doc specifies an httpOnly cookie
 - Pin granularity: exact coordinates, or snapped to named campus locations
 - Whether a host can remove a past event from the day-back view

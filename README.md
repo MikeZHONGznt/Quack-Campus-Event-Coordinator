@@ -110,15 +110,52 @@ Full breakdown lives on the [Epics/Features/Stories wiki page](../../wiki/epics-
 
 ## Getting Started
 
-> Setup instructions will be filled in once the tech stack and repo structure are finalized (see Weeks 1–2 of the delivery plan: tech stack selection, data model, and repo scaffolding).
+### Prerequisites
+
+| Tool | Version | Needed for |
+|---|---|---|
+| **Node** | 22 LTS or newer | The React Native client |
+| **JDK** | 21 | The Spring Boot API |
+| **Docker** | any current | The local PostgreSQL + PostGIS database |
+
+Nothing else is installed globally. Only Node is needed to work on the client.
+
+### Clone
 
 ```bash
-# Clone the repository
 git clone https://github.com/MikeZHONGznt/Quack-Campus-Event-Coordinator.git
 cd Quack-Campus-Event-Coordinator
-
-# TODO: add install/build/run instructions once the stack is set
 ```
+
+### Run the client
+
+```bash
+cd client
+npm install
+npm start
+```
+
+Install **Expo Go** on your phone, then scan the QR code the bundler prints. On Android use
+Expo Go's scanner; on iOS use the Camera app. You should see a plain "Quack!" screen, which
+confirms the toolchain works.
+
+On a physical iOS device, Expo Go requires both it and the Expo CLI to be signed in to the
+same Expo account. Android has no such requirement. If the phone cannot find the bundler at
+all, the network is blocking it; use `npx expo start --tunnel` instead.
+
+The map, the Mapbox native module, and the development build that module requires all arrive
+with story #19. Until then there is nothing to configure and no client tokens to set.
+
+### Repository layout
+
+```
+api/                     Spring Boot API (setup lands with story #18)
+client/                  React Native client (Expo SDK 57, TypeScript)
+  app.json               Expo config
+  App.tsx                Placeholder screen; the map lands with #19
+```
+
+Instructions for running the API are part of story #18.
 
 ## Contributing
 
