@@ -1,5 +1,5 @@
 plugins {
-    // Downloads JDK 21 for the build when the installed JDK is a different version.
+    // Downloads JDK 25 for the build when the installed JDK is a different version.
     id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
 }
 

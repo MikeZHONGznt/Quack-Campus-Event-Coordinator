@@ -115,7 +115,7 @@ Full breakdown lives on the [Epics/Features/Stories wiki page](../../wiki/epics-
 | Tool | Version | Needed for |
 |---|---|---|
 | **Node** | 22 LTS or newer | The React Native client |
-| **JDK** | 21 | The Spring Boot API |
+| **JDK** | 25 | The Spring Boot API |
 | **Docker** | any current | The local PostgreSQL + PostGIS database |
 
 Nothing else is installed globally. Only Node is needed to work on the client.
@@ -163,7 +163,7 @@ curl http://localhost:8080/api/v1/health
 # {"status":"up","database":"up"}
 ```
 
-The first run downloads Gradle and, if your installed JDK is not 21, a JDK 21 toolchain. The
+The first run downloads Gradle and, if your installed JDK is not 25, a JDK 25 toolchain. The
 database container keeps running after the API stops; `docker compose -f api/compose.yaml
 down` stops it, and adding `-v` also wipes its data.
 
@@ -173,7 +173,7 @@ Testcontainers, so Docker must be running.
 ### Repository layout
 
 ```
-api/                     Spring Boot API (Java 21, Spring Boot 3, Gradle wrapper)
+api/                     Spring Boot API (Java 25, Spring Boot 4, Gradle wrapper)
   compose.yaml           Local PostgreSQL + PostGIS for development
   src/main/resources/
     application.yml      Configuration; deployed values come from environment variables

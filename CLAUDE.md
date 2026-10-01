@@ -12,7 +12,7 @@ the source of truth for what to build next. If any of these disagree, stop and a
  
 <!-- Fill these in once #18 and #19 land. -->
  
-Prerequisites: JDK 21, Node, Docker. Nothing else installed globally; the API builds
+Prerequisites: JDK 25, Node, Docker. Nothing else installed globally; the API builds
 through the committed wrapper.
  
 - Run API locally: `cd api && ./gradlew bootRun` (Docker running). Starts PostGIS from
@@ -30,7 +30,7 @@ Decided. Do not swap, add, or remove any of these without asking.
 | Layer       | Choice                                                              |
 | ----------- | ------------------------------------------------------------------- |
 | Client      | React Native, TypeScript, native Mapbox module (`@rnmapbox/maps`)   |
-| API         | Java 21, Spring Boot 3, Spring Web                                  |
+| API         | Java 25, Spring Boot 4, Spring Web                                  |
 | Persistence | Spring Data JPA, Flyway, hibernate-spatial (JTS types)              |
 | Database    | PostgreSQL with PostGIS, hosted on Railway or Supabase              |
 | Auth        | `spring-boot-starter-oauth2-client` against Google, domain allowlist |
