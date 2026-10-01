@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: quack-api
+  # No datasource here. Locally, spring-boot-docker-compose supplies it from compose.yaml.
+  # Deployed, it comes from SPRING_DATASOURCE_URL / _USERNAME / _PASSWORD env variables.
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    locations: classpath:db/migration
+  docker:
+    compose:
+      file: compose.yaml
+      lifecycle-management: start-only
+
+server:
+  port: ${PORT:8080}

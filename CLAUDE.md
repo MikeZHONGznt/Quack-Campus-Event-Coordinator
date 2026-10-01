@@ -12,13 +12,15 @@ the source of truth for what to build next. If any of these disagree, stop and a
  
 <!-- Fill these in once #18 and #19 land. -->
  
-Prerequisites: JDK 21, Node, Docker. Nothing else installed globally; the API builds
+Prerequisites: JDK 25, Node, Docker. Nothing else installed globally; the API builds
 through the committed wrapper.
  
-- Run API locally:
+- Run API locally: `cd api && ./gradlew bootRun` (Docker running). Starts PostGIS from
+  `api/compose.yaml` and serves `GET /api/v1/health` on port 8080.
 - Run client: `cd client && npm install && npm start`, then scan the QR code with Expo
-  Go. The development build that the Mapbox native module needs arrives with #19.
-- Test:
+  Go. The development build that the Mapbox native module needs arrives with #19
+  in Sprint 2.
+- Test: `cd api && ./gradlew test` (Docker running, for Testcontainers)
 - Lint:
 - Deploy: merging to `main` deploys the API via GitHub Actions. Never deploy by hand.
 ## Stack
@@ -28,7 +30,7 @@ Decided. Do not swap, add, or remove any of these without asking.
 | Layer       | Choice                                                              |
 | ----------- | ------------------------------------------------------------------- |
 | Client      | React Native, TypeScript, native Mapbox module (`@rnmapbox/maps`)   |
-| API         | Java 21, Spring Boot 3, Spring Web                                  |
+| API         | Java 25, Spring Boot 4, Spring Web                                  |
 | Persistence | Spring Data JPA, Flyway, hibernate-spatial (JTS types)              |
 | Database    | PostgreSQL with PostGIS, hosted on Railway or Supabase              |
 | Auth        | `spring-boot-starter-oauth2-client` against Google, domain allowlist |
@@ -61,8 +63,11 @@ Work is tracked as GitHub issues in three levels, all on the project board:
  
 Stories written so far:
  
+Sprint 1 is boilerplate and sign-in only. Nothing map-related, including the Mapbox
+module and #19, starts before Sprint 2.
+
 - #8 setup: #18 run the API locally with one command, #19 run the client from a
-  development build with a working map (highest risk, start first)
+  development build with a working map (Sprint 2)
 - #9 CI/CD: #20 PRs run build and tests, #21 integration tests on PostGIS via
   Testcontainers, #22 merging to main deploys the API, #23 new issues added to the board
   automatically (P1)

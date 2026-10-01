@@ -1,0 +1,21 @@
+# Local development database only. Deployed environments use the hosted Postgres.
+name: quack
+
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: quack-postgis
+    labels:
+      # Spring Boot only auto-detects the plain postgres image; this tells it PostGIS is Postgres.
+      org.springframework.boot.service-connection: postgres
+    environment:
+      POSTGRES_DB: quack
+      POSTGRES_USER: quack
+      POSTGRES_PASSWORD: quack
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis-data:/var/lib/postgresql/data
+
+volumes:
+  postgis-data:
