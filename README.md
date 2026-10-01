@@ -146,16 +146,42 @@ all, the network is blocking it; use `npx expo start --tunnel` instead.
 The map, the Mapbox native module, and the development build that module requires all arrive
 with story #19. Until then there is nothing to configure and no client tokens to set.
 
+### Run the API
+
+Start Docker, then:
+
+```bash
+cd api
+./gradlew bootRun        # Windows: .\gradlew.bat bootRun
+```
+
+That one command starts a local PostgreSQL + PostGIS container from `api/compose.yaml`,
+runs Flyway migrations, and serves the API on port 8080. Check it with:
+
+```bash
+curl http://localhost:8080/api/v1/health
+# {"status":"up","database":"up"}
+```
+
+The first run downloads Gradle and, if your installed JDK is not 21, a JDK 21 toolchain. The
+database container keeps running after the API stops; `docker compose -f api/compose.yaml
+down` stops it, and adding `-v` also wipes its data.
+
+Run the tests with `./gradlew test`. They start their own throwaway PostGIS container through
+Testcontainers, so Docker must be running.
+
 ### Repository layout
 
 ```
-api/                     Spring Boot API (setup lands with story #18)
+api/                     Spring Boot API (Java 21, Spring Boot 3, Gradle wrapper)
+  compose.yaml           Local PostgreSQL + PostGIS for development
+  src/main/resources/
+    application.yml      Configuration; deployed values come from environment variables
+    db/migration/        Flyway migrations
 client/                  React Native client (Expo SDK 57, TypeScript)
   app.json               Expo config
   App.tsx                Placeholder screen; the map lands with #19
 ```
-
-Instructions for running the API are part of story #18.
 
 ## Contributing
 

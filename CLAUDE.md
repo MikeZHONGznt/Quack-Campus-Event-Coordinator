@@ -15,10 +15,11 @@ the source of truth for what to build next. If any of these disagree, stop and a
 Prerequisites: JDK 21, Node, Docker. Nothing else installed globally; the API builds
 through the committed wrapper.
  
-- Run API locally:
+- Run API locally: `cd api && ./gradlew bootRun` (Docker running). Starts PostGIS from
+  `api/compose.yaml` and serves `GET /api/v1/health` on port 8080.
 - Run client: `cd client && npm install && npm start`, then scan the QR code with Expo
   Go. The development build that the Mapbox native module needs arrives with #19.
-- Test:
+- Test: `cd api && ./gradlew test` (Docker running, for Testcontainers)
 - Lint:
 - Deploy: merging to `main` deploys the API via GitHub Actions. Never deploy by hand.
 ## Stack
