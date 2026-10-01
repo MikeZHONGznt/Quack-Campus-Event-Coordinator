@@ -144,7 +144,7 @@ same Expo account. Android has no such requirement. If the phone cannot find the
 all, the network is blocking it; use `npx expo start --tunnel` instead.
 
 The map, the Mapbox native module, and the development build that module requires all arrive
-with story #19. Until then there is nothing to configure and no client tokens to set.
+with story #19 in Sprint 2. Until then there is nothing to configure and no client tokens to set.
 
 ### Run the API
 
